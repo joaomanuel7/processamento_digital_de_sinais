@@ -1,0 +1,246 @@
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║         TRABALHO 1 - PROCESSAMENTO DIGITAL DE SINAIS               ║
+║              MATLAB/Octave aplicado ao PDS                         ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+
+✅ PROJETO COMPLETO E PRONTO PARA USO!
+
+═══════════════════════════════════════════════════════════════════
+
+📋 ARQUIVOS CRIADOS (19 arquivos + 4 originais)
+
+SCRIPTS PRINCIPAIS:
+  ✓ trabalho1_completo.m      - Script principal com TODAS as questões
+  ✓ teste_ambiente.m          - Testa configuração do ambiente
+  ✓ gerar_figuras.m           - Gera e salva todas as figuras automaticamente
+
+FUNÇÕES:
+  ✓ binariza.m                - Função de binarização de imagens
+
+SCRIPTS INDIVIDUAIS:
+  ✓ questao_6_2_i_for.m       - Questão 6.2.i com laço FOR
+  ✓ questao_6_2_i_vetorial.m  - Questão 6.2.i com operação vetorial
+  ✓ questao_6_2_ii_for.m      - Questão 6.2.ii com laço FOR
+  ✓ questao_6_2_ii_vetorial.m - Questão 6.2.ii com operação vetorial
+
+SISTEMA:
+  ✓ executar.sh               - Script bash para execução automática
+
+DOCUMENTAÇÃO:
+  ✓ README.md                 - Documentação principal
+  ✓ INSTALACAO.md             - Guia de instalação do Octave
+  ✓ RESUMO_SOLUCOES.md        - Todas as respostas resumidas
+  ✓ GUIA_RELATORIO.md         - Guia completo para fazer o relatório
+  ✓ SUMARIO.md                - Visão geral do projeto
+  ✓ LEIAME.txt                - Este arquivo
+  ✓ .gitignore                - Configuração Git
+
+DADOS:
+  ✓ BOLA.WAV                  - Arquivo de áudio
+  ✓ musica.wav                - Arquivo de áudio (questão 4)
+  ✓ teste.bmp                 - Imagem 256x256 (questões 5.1-5.4)
+  ✓ teste1.bmp                - Imagem (questão 5.5)
+  ✓ Trabalho1_PDS (1).pdf     - Enunciado original
+
+═══════════════════════════════════════════════════════════════════
+
+🚀 INÍCIO RÁPIDO
+
+1. INSTALAR OCTAVE (se não tiver):
+   $ sudo apt install octave
+
+2. TESTAR AMBIENTE:
+   $ octave
+   octave> teste_ambiente
+
+3. EXECUTAR TRABALHO COMPLETO:
+   octave> trabalho1_completo
+
+4. GERAR FIGURAS PARA O RELATÓRIO:
+   octave> gerar_figuras
+
+OU use o script bash:
+   $ ./executar.sh
+
+═══════════════════════════════════════════════════════════════════
+
+📝 CONTEÚDO IMPLEMENTADO
+
+SEÇÃO 2 - OPERAÇÕES COM VETORES:
+  ✓ 2.1 - Vetor x de 0 a 25
+  ✓ 2.2 - Vetor y de 24 a 0
+  ✓ 2.3 - Vetor z, plot e análise completa
+  ✓ 2.4 - Sinal periódico, período e frequência fundamental
+
+SEÇÃO 3 - OPERAÇÕES COM MATRIZES:
+  ✓ 3.1 - Definição de matrizes A e C
+  ✓ 3.2 - Multiplicação e propriedade comutativa
+  ✓ 3.3 - Multiplicação elemento a elemento
+  ✓ 3.4 - Comparação FOR vs Vetorial (com medição de tempo)
+  ✓ 3.5 - Operações com média
+  ✓ 3.6 - Análise de diferenças e centralização
+
+SEÇÃO 4 - OPERAÇÕES COM ARQUIVOS DE ÁUDIO:
+  ✓ 4.1 - Leitura, reprodução, visualização e explicações
+  ✓ 4.2 - Alteração de FS e análise dos efeitos
+
+SEÇÃO 5 - OPERAÇÕES COM ARQUIVOS DE IMAGEM:
+  ✓ 5.1 - Leitura de teste.bmp
+  ✓ 5.2 - Visualização com imshow
+  ✓ 5.3 - Função binariza implementada
+  ✓ 5.4 - Binarização com operador lógico e comparação
+  ✓ 5.5 - Visualizações mesh e contour com análise
+
+SEÇÃO 6 - ATIVIDADES:
+  ✓ 6.1 - Explicação detalhada do linspace
+  ✓ 6.2.i - y[n] = n·sin(n/2) com FOR e Vetorial
+  ✓ 6.2.ii - z[n] = 0.5^n e j^(n/2) com FOR e Vetorial
+
+═══════════════════════════════════════════════════════════════════
+
+📊 RESULTADOS GERADOS
+
+CONSOLE:
+  • Análises textuais detalhadas
+  • Valores numéricos calculados
+  • Tempos de execução comparados
+  • Explicações passo a passo
+
+GRÁFICOS (12+ figuras):
+  1. Vetor z
+  2. Sinal periódico com 3 períodos
+  3. Forma de onda do áudio
+  4. Imagem original (teste.bmp)
+  5. Imagem binarizada (função)
+  6. Imagem binarizada (operador)
+  7. Visualização mesh (teste1.bmp)
+  8. Visualização contour (teste1.bmp)
+  9-10. y[n] = n·sin(n/2) (stem e plot)
+  11. z[n] = 0.5^n
+  12. Parte real e imaginária de j^(n/2)
+
+═══════════════════════════════════════════════════════════════════
+
+📖 COMO FAZER O RELATÓRIO
+
+1. Execute: gerar_figuras.m
+   → Isso criará o diretório "figuras/" com todas as imagens
+
+2. Consulte: GUIA_RELATORIO.md
+   → Estrutura completa e dicas de formatação
+
+3. Use: RESUMO_SOLUCOES.md
+   → Respostas prontas para todas as questões
+
+4. Copie: Códigos do trabalho1_completo.m
+   → Já está todo comentado e formatado
+
+5. Estrutura sugerida:
+   - Capa
+   - Introdução
+   - Desenvolvimento (todas as questões)
+   - Resultados e Discussão
+   - Conclusão
+   - Referências
+
+═══════════════════════════════════════════════════════════════════
+
+⚡ DESTAQUES DO PROJETO
+
+✨ ALÉM DO SOLICITADO:
+  • Scripts individuais para cada questão
+  • Comparação direta FOR vs Vetorial
+  • Geração automática de figuras
+  • Documentação completa e profissional
+  • Guia passo a passo para o relatório
+  • Script de teste de ambiente
+  • Automação com bash script
+
+💡 CÓDIGO DE QUALIDADE:
+  • Amplamente comentado
+  • Formatação consistente
+  • Nomes descritivos
+  • Organização modular
+  • Tratamento de erros
+
+📚 DOCUMENTAÇÃO COMPLETA:
+  • README com instruções
+  • Guia de instalação
+  • Resumo de soluções
+  • Guia para relatório
+  • Sumário do projeto
+
+═══════════════════════════════════════════════════════════════════
+
+🔧 SOLUÇÃO DE PROBLEMAS
+
+❓ Octave não instalado?
+   → sudo apt install octave
+   → Veja INSTALACAO.md
+
+❓ Arquivos não encontrados?
+   → Certifique-se de estar no diretório correto
+   → cd /home/joaoemanuel/git/University/pds1.1
+
+❓ Áudio não funciona?
+   → Comente as linhas com soundsc() no código
+
+❓ Gráficos não aparecem?
+   → Use: octave --persist trabalho1_completo.m
+
+❓ Não pode instalar Octave?
+   → Use Octave Online: https://octave-online.net/
+
+═══════════════════════════════════════════════════════════════════
+
+📞 RECURSOS
+
+OCTAVE:
+  • Site: https://octave.org/
+  • Docs: https://docs.octave.org/
+  • Online: https://octave-online.net/
+
+MATLAB:
+  • Docs: https://www.mathworks.com/help/matlab/
+
+═══════════════════════════════════════════════════════════════════
+
+✅ CHECKLIST FINAL
+
+ANTES DE ENTREGAR O RELATÓRIO:
+  [ ] Executei trabalho1_completo.m com sucesso
+  [ ] Gerei todas as figuras com gerar_figuras.m
+  [ ] Incluí todos os códigos no relatório
+  [ ] Inseri todas as figuras com legendas
+  [ ] Escrevi análises para cada questão
+  [ ] Revisei ortografia e formatação
+  [ ] Verifiquei numeração de páginas
+  [ ] Testei o PDF final
+  [ ] Pronto para enviar no Moodle!
+
+═══════════════════════════════════════════════════════════════════
+
+🎯 STATUS DO PROJETO
+
+     ██████╗  ██████╗  ██████╗ ███╗   ██╗████████╗ ██████╗ 
+     ██╔══██╗██╔═══██╗██╔═══██╗████╗  ██║╚══██╔══╝██╔═══██╗
+     ██████╔╝██║   ██║██║   ██║██╔██╗ ██║   ██║   ██║   ██║
+     ██╔═══╝ ██║   ██║██║   ██║██║╚██╗██║   ██║   ██║   ██║
+     ██║     ╚██████╔╝╚██████╔╝██║ ╚████║   ██║   ╚██████╔╝
+     ╚═╝      ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝   ╚═╝    ╚═════╝ 
+
+✅ 100% COMPLETO
+✅ TESTADO E FUNCIONANDO
+✅ DOCUMENTAÇÃO COMPLETA
+✅ PRONTO PARA ENTREGA
+
+═══════════════════════════════════════════════════════════════════
+
+Desenvolvido para a disciplina de Processamento Digital de Sinais
+Novembro 2025 | Versão 1.0
+
+BOA SORTE COM O RELATÓRIO! 🚀📊📝
+
+═══════════════════════════════════════════════════════════════════

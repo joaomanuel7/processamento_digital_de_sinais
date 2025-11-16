@@ -1,0 +1,26 @@
+# Arquivos temporários do Octave/MATLAB
+*.asv
+*.m~
+octave-workspace
+.octave_hist
+
+# Diretório de figuras geradas
+figuras/
+
+# Arquivos de saída
+*.log
+*.out
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+*~
+
+# Arquivos temporários do editor
+*.swp
+*.swo
+*~
+
+# Arquivos de backup
+*.bak
+*.backup
