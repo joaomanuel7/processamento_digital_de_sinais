@@ -1,0 +1,21 @@
+FIGURAS JPEG - TRABALHO 1 PDS
+==============================
+
+Total: 11 figuras
+Formato: JPEG
+Resolução: 300 DPI
+
+Arquivos:
+=========
+
+1. Questão_2.3_-_Vetor_z.jpg
+2. Questão_2.4_-_Sinal_Periódico.jpg
+3. Questão_4.1_-_Arquivo_de_Áudio.jpg
+4. Questão_5.2_-_Imagem_Original.jpg
+5. Questão_5.3_-_Imagem_Binarizada.jpg
+6. Questão_5.4_-_Binarização_por_Operador.jpg
+7. Questão_5.5_-_Contour.jpg
+8. Questão_5.5_-_Mesh.jpg
+9. Questão_6.2.ii_-_j^(n_2).jpg
+10. Questão_6.2.ii_-_zn_=_0.5^n.jpg
+11. Questão_6.2.i_-_yn_=_n*sin(n_2).jpg
