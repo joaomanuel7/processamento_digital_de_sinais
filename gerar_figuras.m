@@ -41,11 +41,31 @@ for i = 1:numFigs
         figName = strrep(figName, ':', '_');
     end
     
-    % Salvar em alta resolução
-    filename = sprintf('figuras/%s.png', figName);
-    print(figHandles(i), filename, '-dpng', '-r300');
+    % Salvar em alta resolução usando diferentes formatos
+    filename_png = sprintf('figuras/%s.png', figName);
+    filename_jpg = sprintf('figuras/%s.jpg', figName);
     
-    fprintf('Salva: %s\n', filename);
+    try
+        % Tentar salvar como PNG
+        saveas(figHandles(i), filename_png);
+    catch
+        % Se falhar, tentar JPG
+        try
+            saveas(figHandles(i), filename_jpg);
+            filename = filename_jpg;
+        catch
+            % Se ainda falhar, usar print com driver mais simples
+            print(figHandles(i), filename_png, '-dpng', '-S640,480');
+        end
+    end
+    
+    if exist(filename_png, 'file')
+        fprintf('Salva: %s\n', filename_png);
+    elseif exist(filename_jpg, 'file')
+        fprintf('Salva: %s\n', filename_jpg);
+    else
+        fprintf('AVISO: Não foi possível salvar %s\n', figName);
+    end
 end
 
 fprintf('\n\nTodas as figuras foram salvas no diretório "figuras/"\n');

@@ -4,10 +4,7 @@
 octave-workspace
 .octave_hist
 
-# Diretório de figuras geradas
-figuras/
-
-# Arquivos de saída
+# Arquivos de saída temporários
 *.log
 *.out
 

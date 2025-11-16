@@ -1,0 +1,28 @@
+FIGURAS GERADAS - TRABALHO 1 PDS
+================================
+
+Total: 11 figuras
+
+Formato: .fig (formato nativo MATLAB/Octave)
+
+Para visualizar:
+  octave> openfig('figuras/nome_arquivo.fig')
+
+Para converter para PNG:
+  octave> fig = openfig('arquivo.fig');
+  octave> print(fig, 'arquivo.png', '-dpng');
+
+Arquivos salvos:
+================
+
+1. Questão 6.2.ii - j^(n/2)
+2. Questão 6.2.ii - z[n] = 0.5^n
+3. Questão 6.2.i - y[n] = n*sin(n/2)
+4. Questão 5.5 - Contour
+5. Questão 5.5 - Mesh
+6. Questão 5.4 - Binarização por Operador
+7. Questão 5.3 - Imagem Binarizada
+8. Questão 5.2 - Imagem Original
+9. Questão 4.1 - Arquivo de Áudio
+10. Questão 2.4 - Sinal Periódico
+11. Questão 2.3 - Vetor z
