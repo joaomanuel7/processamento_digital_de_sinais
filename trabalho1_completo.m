@@ -1,188 +1,373 @@
-% Trabalho 1 - Processamento Digital de Sinais% Trabalho 1 - Processamento Digital de Sinais% Trabalho 1 - Processamento Digital de Sinais
+% Trabalho 1 - Processamento Digital de Sinais% Trabalho 1 - Processamento Digital de Sinais% Trabalho 1 - Processamento Digital de Sinais% Trabalho 1 - Processamento Digital de Sinais
+
+clear all; close all; clc;
 
 
 
-clear all;% MATLAB/Octave aplicado ao PDS% MATLAB/Octave aplicado ao PDS
+% ============================================================================
 
-close all;
+% QUESTÃO 2 - OPERAÇÕES COM VETORESclear all;% MATLAB/Octave aplicado ao PDS% MATLAB/Octave aplicado ao PDS
 
-clc;
+% ============================================================================
 
-
-
-%% Questão 2.1 - Vetor xclear all;clear all;
+% 2.1close all;
 
 x = 0:1:25;
 
-close all;close all;
+clc;
 
-%% Questão 2.2 - Vetor y
+% 2.2
 
-y = 24:-1:0;clc;clc;
+y = 24:-1:0;
 
 
 
-%% Questão 2.3 - Operações com vetores
+% 2.3%% Questão 2.1 - Vetor xclear all;clear all;
 
 z = zeros(1, 100);
 
-n = 0:99;fprintf('===== TRABALHO 1 - PDS =====\n\n');fprintf('===== TRABALHO 1 - PDS =====\n\n');
+n = 0:99;x = 0:1:25;
 
 z(1:26) = x;
 
-z(27:51) = y;
+z(27:51) = y;close all;close all;
 
 
 
-figure('Name', 'Questão 2.3');%% 2 - Operações com Vetores%% 2 - Operações com Vetores
+figure('Name', 'Questão 2.3');%% Questão 2.2 - Vetor y
 
 plot(n, z, 'b-', 'LineWidth', 1.5);
 
-axis([-2 100 -1 30]);
+axis([-2 100 -1 30]);y = 24:-1:0;clc;clc;
 
 grid on;
 
-title('Gráfico do vetor z');fprintf('2.1 - Criando vetor x de 0 a 25:\n');fprintf('2.1 - Criando vetor x de 0 a 25:\n');
+title('Gráfico do vetor z');
 
-xlabel('Índice n');
+xlabel('n'); ylabel('z[n]');
 
-ylabel('z[n]');x = 0:1:25;x = 0:1:25;
+%% Questão 2.3 - Operações com vetores
 
+% 2.4
 
-
-%% Questão 2.4 - Sinal periódicofprintf('Vetor x criado com %d elementos\n\n', length(x));fprintf('Vetor x criado com %d elementos\n\n', length(x));
-
-zp = [z z z];
+zp = [z z z];z = zeros(1, 100);
 
 np = 0:length(zp)-1;
 
+n = 0:99;fprintf('===== TRABALHO 1 - PDS =====\n\n');fprintf('===== TRABALHO 1 - PDS =====\n\n');
 
+figure('Name', 'Questão 2.4');
 
-figure('Name', 'Questão 2.4');fprintf('2.2 - Criando vetor y de 24 a 0:\n');fprintf('2.2 - Criando vetor y de 24 a 0:\n');
+stem(np, zp, 'b', 'LineWidth', 1.2);z(1:26) = x;
 
-stem(np, zp, 'b', 'LineWidth', 1.2);
+title('Sinal periódico com 3 períodos');
 
-title('Sinal periódico com 3 períodos');y = 24:-1:0;y = 24:-1:0;
-
-xlabel('n');
-
-ylabel('Amplitude');fprintf('Vetor y criado com %d elementos\n\n', length(y));fprintf('Vetor y criado com %d elementos\n\n', length(y));
+xlabel('n'); ylabel('Amplitude');z(27:51) = y;
 
 grid on;
 
 
 
-%% Questão 3.1 - Matrizes A e C
+% ============================================================================
 
-A = [2 3 4; 4 4 4; 8 9 0];fprintf('2.3 - Operações com vetores x, y e z:\n');fprintf('2.3 - Operações com vetores x, y e z:\n');
+% QUESTÃO 3 - OPERAÇÕES COM MATRIZESfigure('Name', 'Questão 2.3');%% 2 - Operações com Vetores%% 2 - Operações com Vetores
 
-C = [1 2; 3 4; 1 1];
+% ============================================================================
 
-z = zeros(1, 100);z = zeros(1, 100);
+% 3.1plot(n, z, 'b-', 'LineWidth', 1.5);
 
-%% Questão 3.2 - Multiplicação A*C
+A = [2 3 4; 4 4 4; 8 9 0];
 
-resultado_AC = A * C;n = 0:99;n = 0:99;
-
-
-
-%% Questão 3.3 - Multiplicação elemento a elementoz(1:26) = x;z(1:26) = x;
-
-D = ones(3, 3);
-
-resultado_A_ponto_D = A .* D;z(27:51) = y;z(27:51) = y;
+C = [1 2; 3 4; 1 1];axis([-2 100 -1 30]);
 
 
 
-%% Questão 3.4 - Comparação FOR vs vetorial
+% 3.2grid on;
+
+resultado_AC = A * C;
+
+title('Gráfico do vetor z');fprintf('2.1 - Criando vetor x de 0 a 25:\n');fprintf('2.1 - Criando vetor x de 0 a 25:\n');
+
+% 3.3
+
+D = ones(3, 3);xlabel('Índice n');
+
+resultado_A_D = A .* D;
+
+ylabel('z[n]');x = 0:1:25;x = 0:1:25;
+
+% 3.4 - Comparação FOR vs vetorial
 
 M = ones(1500, 1500);
 
-figure('Name', 'Questão 2.3 - Vetor z');figure('Name', 'Questão 2.3 - Vetor z');
 
-tic;
 
-M_for = M;plot(n, z, 'b-', 'LineWidth', 1.5);plot(n, z, 'b-', 'LineWidth', 1.5);
+tic;%% Questão 2.4 - Sinal periódicofprintf('Vetor x criado com %d elementos\n\n', length(x));fprintf('Vetor x criado com %d elementos\n\n', length(x));
 
-for i = 1:size(M, 1)
+M_for = M;
 
-    for j = 1:size(M, 2)axis([-2 100 -1 30]);axis([-2 100 -1 30]);
+for i = 1:size(M, 1)zp = [z z z];
 
-        M_for(i, j) = M_for(i, j) * 5;
+    for j = 1:size(M, 2)
 
-    endgrid on;grid on;
+        M_for(i, j) = M_for(i, j) * 5;np = 0:length(zp)-1;
+
+    end
 
 end
 
-tempo_for = toc;title('Gráfico do vetor z');title('Gráfico do vetor z');
+tempo_for = toc;
 
+figure('Name', 'Questão 2.4');fprintf('2.2 - Criando vetor y de 24 a 0:\n');fprintf('2.2 - Criando vetor y de 24 a 0:\n');
 
+tic;
 
-tic;xlabel('Índice n');xlabel('Índice n');
+M_vet = M * 5;stem(np, zp, 'b', 'LineWidth', 1.2);
 
-M_vet = M * 5;
+tempo_vet = toc;
 
-tempo_vet = toc;ylabel('Valor de z[n]');ylabel('Valor de z[n]');
-
-
+title('Sinal periódico com 3 períodos');y = 24:-1:0;y = 24:-1:0;
 
 ganho = tempo_for / tempo_vet;
 
+xlabel('n');
 
+% 3.5
 
-%% Questão 3.5 - Operações com médiafprintf('Análise do código:\n');fprintf('Análise do código:\n');
+X = [4 8 12; 2 6 10];ylabel('Amplitude');fprintf('Vetor y criado com %d elementos\n\n', length(y));fprintf('Vetor y criado com %d elementos\n\n', length(y));
 
-X = [4 8 12; 2 6 10];
+M_media = mean(X, 2);
 
-M_media = mean(X, 2);fprintf('- n = 0:99: Cria um vetor de índices de 0 a 99\n');fprintf('- n = 0:99: Cria um vetor de índices de 0 a 99\n');
-
-X1 = X - M_media * ones(1, 3);
-
-fprintf('- z(1:26) = x: Atribui os valores de x às primeiras 26 posições de z\n');fprintf('- z(1:26) = x: Atribui os valores de x às primeiras 26 posições de z\n');
-
-%% Questão 3.6 - Verificação
-
-media_X1 = mean(X1, 2);fprintf('- z(27:51) = y: Atribui os valores de y às posições 27 a 51 de z\n');fprintf('- z(27:51) = y: Atribui os valores de y às posições 27 a 51 de z\n');
+X1 = X - M_media * ones(1, 3);grid on;
 
 
 
-%% Questão 4.1 - Leitura de áudiofprintf('- plot(n,z): Plota o gráfico de z em função de n\n');fprintf('- plot(n,z): Plota o gráfico de z em função de n\n');
+% 3.6
+
+media_X1 = mean(X1, 2);
+
+%% Questão 3.1 - Matrizes A e C
+
+% ============================================================================
+
+% QUESTÃO 4 - OPERAÇÕES COM ARQUIVOS DE ÁUDIOA = [2 3 4; 4 4 4; 8 9 0];fprintf('2.3 - Operações com vetores x, y e z:\n');fprintf('2.3 - Operações com vetores x, y e z:\n');
+
+% ============================================================================
+
+% 4.1C = [1 2; 3 4; 1 1];
 
 try
 
-    [Y, FS] = audioread('musica.wav');fprintf('- axis([-2 100 -1 30]): Define os limites dos eixos\n');fprintf('- axis([-2 100 -1 30]): Define os limites dos eixos\n');
+    [Y, FS] = audioread('musica.wav');z = zeros(1, 100);z = zeros(1, 100);
 
     
 
-    figure('Name', 'Questão 4.1');fprintf('- grid: Ativa a grade no gráfico\n\n');fprintf('- grid: Ativa a grade no gráfico\n\n');
+    figure('Name', 'Questão 4.1');%% Questão 3.2 - Multiplicação A*C
 
     plot(Y);
 
-    title('Forma de onda - musica.wav');
+    title('Forma de onda - musica.wav');resultado_AC = A * C;n = 0:99;n = 0:99;
 
-    xlabel('Amostra');
-
-    ylabel('Amplitude');fprintf('2.4 - Gerando sinal periódico com 3 períodos:\n');fprintf('2.4 - Gerando sinal periódico com 3 períodos:\n');
+    xlabel('Amostra'); ylabel('Amplitude');
 
     grid on;
 
-catchzp = [z z z];zp = [z z z];
+catch
 
-    warning('Arquivo musica.wav não encontrado');
+    warning('Arquivo musica.wav não encontrado');%% Questão 3.3 - Multiplicação elemento a elementoz(1:26) = x;z(1:26) = x;
 
-endnp = 0:length(zp)-1;np = 0:length(zp)-1;
+end
 
+D = ones(3, 3);
 
+% ============================================================================
 
-%% Questão 5.1 e 5.2 - Leitura de imagem
+% QUESTÃO 5 - OPERAÇÕES COM ARQUIVOS DE IMAGEMresultado_A_ponto_D = A .* D;z(27:51) = y;z(27:51) = y;
+
+% ============================================================================
+
+% 5.1 e 5.2
 
 try
 
-    [m, n] = imread('teste.bmp');figure('Name', 'Questão 2.4 - Sinal Periódico');figure('Name', 'Questão 2.4 - Sinal Periódico');
+    [m, n] = imread('teste.bmp');%% Questão 3.4 - Comparação FOR vs vetorial
 
     Y_img = ind2gray(m, n);
 
-    stem(np, zp, 'b', 'LineWidth', 1.2);stem(np, zp, 'b', 'LineWidth', 1.2);
+    M = ones(1500, 1500);
+
+    figure('Name', 'Questão 5.2');
+
+    imshow(Y_img);figure('Name', 'Questão 2.3 - Vetor z');figure('Name', 'Questão 2.3 - Vetor z');
+
+    title('Imagem teste.bmp');
+
+    tic;
+
+    % 5.3
+
+    limiar = 0.5;M_for = M;plot(n, z, 'b-', 'LineWidth', 1.5);plot(n, z, 'b-', 'LineWidth', 1.5);
+
+    Y_bin = binariza(Y_img, limiar);
+
+    for i = 1:size(M, 1)
+
+    figure('Name', 'Questão 5.3');
+
+    imshow(Y_bin);    for j = 1:size(M, 2)axis([-2 100 -1 30]);axis([-2 100 -1 30]);
+
+    title(sprintf('Binarizada (limiar = %.2f)', limiar));
+
+            M_for(i, j) = M_for(i, j) * 5;
+
+    % 5.4
+
+    Y1 = Y_img > 0.5;    endgrid on;grid on;
+
+    
+
+    figure('Name', 'Questão 5.4');end
+
+    imshow(Y1);
+
+    title('Binarização com operador >');tempo_for = toc;title('Gráfico do vetor z');title('Gráfico do vetor z');
+
+    
+
+catch
+
+    warning('Erro ao carregar teste.bmp');
+
+endtic;xlabel('Índice n');xlabel('Índice n');
+
+
+
+% 5.5M_vet = M * 5;
+
+try
+
+    [m1, n1] = imread('teste1.bmp');tempo_vet = toc;ylabel('Valor de z[n]');ylabel('Valor de z[n]');
+
+    Y_img1 = ind2gray(m1, n1);
+
+    
+
+    figure('Name', 'Questão 5.5 - Mesh');
+
+    mesh(Y_img1);ganho = tempo_for / tempo_vet;
+
+    title('Visualização mesh');
+
+    xlabel('X'); ylabel('Y'); zlabel('Intensidade');
+
+    colorbar;
+
+    %% Questão 3.5 - Operações com médiafprintf('Análise do código:\n');fprintf('Análise do código:\n');
+
+    figure('Name', 'Questão 5.5 - Contour');
+
+    contour(Y_img1, 20);X = [4 8 12; 2 6 10];
+
+    title('Visualização contour');
+
+    xlabel('X'); ylabel('Y');M_media = mean(X, 2);fprintf('- n = 0:99: Cria um vetor de índices de 0 a 99\n');fprintf('- n = 0:99: Cria um vetor de índices de 0 a 99\n');
+
+    colorbar;
+
+    X1 = X - M_media * ones(1, 3);
+
+catch
+
+    warning('Erro ao carregar teste1.bmp');fprintf('- z(1:26) = x: Atribui os valores de x às primeiras 26 posições de z\n');fprintf('- z(1:26) = x: Atribui os valores de x às primeiras 26 posições de z\n');
+
+end
+
+%% Questão 3.6 - Verificação
+
+% ============================================================================
+
+% QUESTÃO 6 - ATIVIDADESmedia_X1 = mean(X1, 2);fprintf('- z(27:51) = y: Atribui os valores de y às posições 27 a 51 de z\n');fprintf('- z(27:51) = y: Atribui os valores de y às posições 27 a 51 de z\n');
+
+% ============================================================================
+
+% 6.2.i - y[n] = n*sin(n/2)
+
+n_range = 0:10;
+
+y_sin = n_range .* sin(n_range / 2);%% Questão 4.1 - Leitura de áudiofprintf('- plot(n,z): Plota o gráfico de z em função de n\n');fprintf('- plot(n,z): Plota o gráfico de z em função de n\n');
+
+
+
+figure('Name', 'Questão 6.2.i');try
+
+subplot(2, 1, 1);
+
+stem(n_range, y_sin, 'b', 'LineWidth', 1.5);    [Y, FS] = audioread('musica.wav');fprintf('- axis([-2 100 -1 30]): Define os limites dos eixos\n');fprintf('- axis([-2 100 -1 30]): Define os limites dos eixos\n');
+
+title('y[n] = n \cdot sin(n/2)');
+
+xlabel('n'); ylabel('y[n]');    
+
+grid on;
+
+    figure('Name', 'Questão 4.1');fprintf('- grid: Ativa a grade no gráfico\n\n');fprintf('- grid: Ativa a grade no gráfico\n\n');
+
+subplot(2, 1, 2);
+
+plot(n_range, y_sin, 'r-o', 'LineWidth', 1.5, 'MarkerSize', 6);    plot(Y);
+
+title('y[n] = n \cdot sin(n/2)');
+
+xlabel('n'); ylabel('y[n]');    title('Forma de onda - musica.wav');
+
+grid on;
+
+    xlabel('Amostra');
+
+% 6.2.ii - z[n] = 0.5^n e j^(n/2)
+
+z_exp = 0.5 .^ n_range;    ylabel('Amplitude');fprintf('2.4 - Gerando sinal periódico com 3 períodos:\n');fprintf('2.4 - Gerando sinal periódico com 3 períodos:\n');
+
+z_complex = exp(1j * n_range / 2);
+
+    grid on;
+
+figure('Name', 'Questão 6.2.ii - z[n]');
+
+stem(n_range, z_exp, 'b', 'LineWidth', 1.5);catchzp = [z z z];zp = [z z z];
+
+title('z[n] = 0.5^n');
+
+xlabel('n'); ylabel('z[n]');    warning('Arquivo musica.wav não encontrado');
+
+grid on;
+
+endnp = 0:length(zp)-1;np = 0:length(zp)-1;
+
+figure('Name', 'Questão 6.2.ii - j^(n/2)');
+
+subplot(2, 1, 1);
+
+stem(n_range, real(z_complex), 'b', 'LineWidth', 1.5);
+
+title('Parte Real de j^{n/2}');%% Questão 5.1 e 5.2 - Leitura de imagem
+
+xlabel('n'); ylabel('Real');
+
+grid on;try
+
+
+
+subplot(2, 1, 2);    [m, n] = imread('teste.bmp');figure('Name', 'Questão 2.4 - Sinal Periódico');figure('Name', 'Questão 2.4 - Sinal Periódico');
+
+stem(n_range, imag(z_complex), 'r', 'LineWidth', 1.5);
+
+title('Parte Imaginária de j^{n/2}');    Y_img = ind2gray(m, n);
+
+xlabel('n'); ylabel('Imaginário');
+
+grid on;    stem(np, zp, 'b', 'LineWidth', 1.2);stem(np, zp, 'b', 'LineWidth', 1.2);
+
 
     figure('Name', 'Questão 5.2');
 
