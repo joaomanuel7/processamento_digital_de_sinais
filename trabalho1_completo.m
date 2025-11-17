@@ -1,186 +1,370 @@
-% Trabalho 1 - Processamento Digital de Sinais% Trabalho 1 - Processamento Digital de Sinais
-
-% MATLAB/Octave aplicado ao PDS% MATLAB/Octave aplicado ao PDS
+% Trabalho 1 - Processamento Digital de Sinais% Trabalho 1 - Processamento Digital de Sinais% Trabalho 1 - Processamento Digital de Sinais
 
 
 
-clear all;clear all;
+clear all;% MATLAB/Octave aplicado ao PDS% MATLAB/Octave aplicado ao PDS
+
+close all;
+
+clc;
+
+
+
+%% Questão 2.1 - Vetor xclear all;clear all;
+
+x = 0:1:25;
 
 close all;close all;
 
-clc;clc;
+%% Questão 2.2 - Vetor y
+
+y = 24:-1:0;clc;clc;
 
 
 
-fprintf('===== TRABALHO 1 - PDS =====\n\n');fprintf('===== TRABALHO 1 - PDS =====\n\n');
+%% Questão 2.3 - Operações com vetores
+
+z = zeros(1, 100);
+
+n = 0:99;fprintf('===== TRABALHO 1 - PDS =====\n\n');fprintf('===== TRABALHO 1 - PDS =====\n\n');
+
+z(1:26) = x;
+
+z(27:51) = y;
 
 
 
-%% 2 - Operações com Vetores%% 2 - Operações com Vetores
+figure('Name', 'Questão 2.3');%% 2 - Operações com Vetores%% 2 - Operações com Vetores
+
+plot(n, z, 'b-', 'LineWidth', 1.5);
+
+axis([-2 100 -1 30]);
+
+grid on;
+
+title('Gráfico do vetor z');fprintf('2.1 - Criando vetor x de 0 a 25:\n');fprintf('2.1 - Criando vetor x de 0 a 25:\n');
+
+xlabel('Índice n');
+
+ylabel('z[n]');x = 0:1:25;x = 0:1:25;
 
 
 
-fprintf('2.1 - Criando vetor x de 0 a 25:\n');fprintf('2.1 - Criando vetor x de 0 a 25:\n');
+%% Questão 2.4 - Sinal periódicofprintf('Vetor x criado com %d elementos\n\n', length(x));fprintf('Vetor x criado com %d elementos\n\n', length(x));
 
-x = 0:1:25;x = 0:1:25;
+zp = [z z z];
 
-fprintf('Vetor x criado com %d elementos\n\n', length(x));fprintf('Vetor x criado com %d elementos\n\n', length(x));
-
-
-
-fprintf('2.2 - Criando vetor y de 24 a 0:\n');fprintf('2.2 - Criando vetor y de 24 a 0:\n');
-
-y = 24:-1:0;y = 24:-1:0;
-
-fprintf('Vetor y criado com %d elementos\n\n', length(y));fprintf('Vetor y criado com %d elementos\n\n', length(y));
+np = 0:length(zp)-1;
 
 
 
-fprintf('2.3 - Operações com vetores x, y e z:\n');fprintf('2.3 - Operações com vetores x, y e z:\n');
+figure('Name', 'Questão 2.4');fprintf('2.2 - Criando vetor y de 24 a 0:\n');fprintf('2.2 - Criando vetor y de 24 a 0:\n');
+
+stem(np, zp, 'b', 'LineWidth', 1.2);
+
+title('Sinal periódico com 3 períodos');y = 24:-1:0;y = 24:-1:0;
+
+xlabel('n');
+
+ylabel('Amplitude');fprintf('Vetor y criado com %d elementos\n\n', length(y));fprintf('Vetor y criado com %d elementos\n\n', length(y));
+
+grid on;
+
+
+
+%% Questão 3.1 - Matrizes A e C
+
+A = [2 3 4; 4 4 4; 8 9 0];fprintf('2.3 - Operações com vetores x, y e z:\n');fprintf('2.3 - Operações com vetores x, y e z:\n');
+
+C = [1 2; 3 4; 1 1];
 
 z = zeros(1, 100);z = zeros(1, 100);
 
-n = 0:99;n = 0:99;
+%% Questão 3.2 - Multiplicação A*C
 
-z(1:26) = x;z(1:26) = x;
-
-z(27:51) = y;z(27:51) = y;
+resultado_AC = A * C;n = 0:99;n = 0:99;
 
 
+
+%% Questão 3.3 - Multiplicação elemento a elementoz(1:26) = x;z(1:26) = x;
+
+D = ones(3, 3);
+
+resultado_A_ponto_D = A .* D;z(27:51) = y;z(27:51) = y;
+
+
+
+%% Questão 3.4 - Comparação FOR vs vetorial
+
+M = ones(1500, 1500);
 
 figure('Name', 'Questão 2.3 - Vetor z');figure('Name', 'Questão 2.3 - Vetor z');
 
-plot(n, z, 'b-', 'LineWidth', 1.5);plot(n, z, 'b-', 'LineWidth', 1.5);
+tic;
 
-axis([-2 100 -1 30]);axis([-2 100 -1 30]);
+M_for = M;plot(n, z, 'b-', 'LineWidth', 1.5);plot(n, z, 'b-', 'LineWidth', 1.5);
 
-grid on;grid on;
+for i = 1:size(M, 1)
 
-title('Gráfico do vetor z');title('Gráfico do vetor z');
+    for j = 1:size(M, 2)axis([-2 100 -1 30]);axis([-2 100 -1 30]);
 
-xlabel('Índice n');xlabel('Índice n');
+        M_for(i, j) = M_for(i, j) * 5;
 
-ylabel('Valor de z[n]');ylabel('Valor de z[n]');
+    endgrid on;grid on;
+
+end
+
+tempo_for = toc;title('Gráfico do vetor z');title('Gráfico do vetor z');
 
 
 
-fprintf('Análise do código:\n');fprintf('Análise do código:\n');
+tic;xlabel('Índice n');xlabel('Índice n');
 
-fprintf('- n = 0:99: Cria um vetor de índices de 0 a 99\n');fprintf('- n = 0:99: Cria um vetor de índices de 0 a 99\n');
+M_vet = M * 5;
+
+tempo_vet = toc;ylabel('Valor de z[n]');ylabel('Valor de z[n]');
+
+
+
+ganho = tempo_for / tempo_vet;
+
+
+
+%% Questão 3.5 - Operações com médiafprintf('Análise do código:\n');fprintf('Análise do código:\n');
+
+X = [4 8 12; 2 6 10];
+
+M_media = mean(X, 2);fprintf('- n = 0:99: Cria um vetor de índices de 0 a 99\n');fprintf('- n = 0:99: Cria um vetor de índices de 0 a 99\n');
+
+X1 = X - M_media * ones(1, 3);
 
 fprintf('- z(1:26) = x: Atribui os valores de x às primeiras 26 posições de z\n');fprintf('- z(1:26) = x: Atribui os valores de x às primeiras 26 posições de z\n');
 
-fprintf('- z(27:51) = y: Atribui os valores de y às posições 27 a 51 de z\n');fprintf('- z(27:51) = y: Atribui os valores de y às posições 27 a 51 de z\n');
+%% Questão 3.6 - Verificação
 
-fprintf('- plot(n,z): Plota o gráfico de z em função de n\n');fprintf('- plot(n,z): Plota o gráfico de z em função de n\n');
-
-fprintf('- axis([-2 100 -1 30]): Define os limites dos eixos\n');fprintf('- axis([-2 100 -1 30]): Define os limites dos eixos\n');
-
-fprintf('- grid: Ativa a grade no gráfico\n\n');fprintf('- grid: Ativa a grade no gráfico\n\n');
+media_X1 = mean(X1, 2);fprintf('- z(27:51) = y: Atribui os valores de y às posições 27 a 51 de z\n');fprintf('- z(27:51) = y: Atribui os valores de y às posições 27 a 51 de z\n');
 
 
 
-fprintf('2.4 - Gerando sinal periódico com 3 períodos:\n');fprintf('2.4 - Gerando sinal periódico com 3 períodos:\n');
+%% Questão 4.1 - Leitura de áudiofprintf('- plot(n,z): Plota o gráfico de z em função de n\n');fprintf('- plot(n,z): Plota o gráfico de z em função de n\n');
 
-zp = [z z z];zp = [z z z];
+try
 
-np = 0:length(zp)-1;np = 0:length(zp)-1;
+    [Y, FS] = audioread('musica.wav');fprintf('- axis([-2 100 -1 30]): Define os limites dos eixos\n');fprintf('- axis([-2 100 -1 30]): Define os limites dos eixos\n');
 
+    
 
+    figure('Name', 'Questão 4.1');fprintf('- grid: Ativa a grade no gráfico\n\n');fprintf('- grid: Ativa a grade no gráfico\n\n');
 
-figure('Name', 'Questão 2.4 - Sinal Periódico');figure('Name', 'Questão 2.4 - Sinal Periódico');
+    plot(Y);
 
-stem(np, zp, 'b', 'LineWidth', 1.2);stem(np, zp, 'b', 'LineWidth', 1.2);
+    title('Forma de onda - musica.wav');
 
-title('Sinal periódico com 3 períodos');title('Sinal periódico com 3 períodos');
+    xlabel('Amostra');
 
-xlabel('Amostra n');xlabel('Amostra n');
+    ylabel('Amplitude');fprintf('2.4 - Gerando sinal periódico com 3 períodos:\n');fprintf('2.4 - Gerando sinal periódico com 3 períodos:\n');
 
-ylabel('Amplitude');ylabel('Amplitude');
+    grid on;
 
-grid on;grid on;
+catchzp = [z z z];zp = [z z z];
 
+    warning('Arquivo musica.wav não encontrado');
 
-
-periodo_fundamental = length(z);periodo_fundamental = length(z);
-
-fs = 8000;fs = 8000;
-
-freq_fundamental = fs / periodo_fundamental;freq_fundamental = fs / periodo_fundamental;
-
-fprintf('Período fundamental: %d amostras\n', periodo_fundamental);fprintf('Período fundamental: %d amostras\n', periodo_fundamental);
-
-fprintf('Frequência de amostragem: %d Hz\n', fs);fprintf('Frequência de amostragem: %d Hz\n', fs);
-
-fprintf('Frequência fundamental: %.2f Hz\n\n', freq_fundamental);fprintf('Frequência fundamental: %.2f Hz\n\n', freq_fundamental);
+endnp = 0:length(zp)-1;np = 0:length(zp)-1;
 
 
 
-%% 3 - Operações com Matrizes%% 3 - Operações com Matrizes
+%% Questão 5.1 e 5.2 - Leitura de imagem
+
+try
+
+    [m, n] = imread('teste.bmp');figure('Name', 'Questão 2.4 - Sinal Periódico');figure('Name', 'Questão 2.4 - Sinal Periódico');
+
+    Y_img = ind2gray(m, n);
+
+    stem(np, zp, 'b', 'LineWidth', 1.2);stem(np, zp, 'b', 'LineWidth', 1.2);
+
+    figure('Name', 'Questão 5.2');
+
+    imshow(Y_img);title('Sinal periódico com 3 períodos');title('Sinal periódico com 3 períodos');
+
+    title('Imagem teste.bmp');
+
+    xlabel('Amostra n');xlabel('Amostra n');
+
+    %% Questão 5.3 - Binarização com função
+
+    limiar = 0.5;ylabel('Amplitude');ylabel('Amplitude');
+
+    Y_bin = binariza(Y_img, limiar);
+
+    grid on;grid on;
+
+    figure('Name', 'Questão 5.3');
+
+    imshow(Y_bin);
+
+    title(sprintf('Imagem binarizada (limiar = %.2f)', limiar));
+
+    periodo_fundamental = length(z);periodo_fundamental = length(z);
+
+    %% Questão 5.4 - Binarização com operador
+
+    Y1 = Y_img > 0.5;fs = 8000;fs = 8000;
+
+    
+
+    figure('Name', 'Questão 5.4');freq_fundamental = fs / periodo_fundamental;freq_fundamental = fs / periodo_fundamental;
+
+    imshow(Y1);
+
+    title('Binarização com operador >');fprintf('Período fundamental: %d amostras\n', periodo_fundamental);fprintf('Período fundamental: %d amostras\n', periodo_fundamental);
+
+    
+
+catchfprintf('Frequência de amostragem: %d Hz\n', fs);fprintf('Frequência de amostragem: %d Hz\n', fs);
+
+    warning('Erro ao carregar teste.bmp');
+
+endfprintf('Frequência fundamental: %.2f Hz\n\n', freq_fundamental);fprintf('Frequência fundamental: %.2f Hz\n\n', freq_fundamental);
 
 
 
-fprintf('3.1 - Definindo matrizes A e C:\n');fprintf('3.1 - Definindo matrizes A e C:\n');
+%% Questão 5.5 - Visualização 3D
 
-A = [2 3 4; 4 4 4; 8 9 0];A = [2 3 4; 4 4 4; 8 9 0];
+try
 
-C = [1 2; 3 4; 1 1];C = [1 2; 3 4; 1 1];
+    [m1, n1] = imread('teste1.bmp');%% 3 - Operações com Matrizes%% 3 - Operações com Matrizes
 
-fprintf('Matriz A (3x3):\n');fprintf('Matriz A (3x3):\n');
+    Y_img1 = ind2gray(m1, n1);
 
-disp(A);disp(A);
+    
 
-fprintf('Matriz C (3x2):\n');fprintf('Matriz C (3x2):\n');
+    figure('Name', 'Questão 5.5 - Mesh');
 
-disp(C);disp(C);
+    mesh(Y_img1);fprintf('3.1 - Definindo matrizes A e C:\n');fprintf('3.1 - Definindo matrizes A e C:\n');
+
+    title('Visualização mesh');
+
+    xlabel('X');A = [2 3 4; 4 4 4; 8 9 0];A = [2 3 4; 4 4 4; 8 9 0];
+
+    ylabel('Y');
+
+    zlabel('Intensidade');C = [1 2; 3 4; 1 1];C = [1 2; 3 4; 1 1];
+
+    colorbar;
+
+    fprintf('Matriz A (3x3):\n');fprintf('Matriz A (3x3):\n');
+
+    figure('Name', 'Questão 5.5 - Contour');
+
+    contour(Y_img1, 20);disp(A);disp(A);
+
+    title('Visualização contour');
+
+    xlabel('X');fprintf('Matriz C (3x2):\n');fprintf('Matriz C (3x2):\n');
+
+    ylabel('Y');
+
+    colorbar;disp(C);disp(C);
+
+    
+
+catch
+
+    warning('Erro ao carregar teste1.bmp');
+
+endfprintf('3.2 - Multiplicação A*C:\n');fprintf('3.2 - Multiplicação A*C:\n');
 
 
 
-fprintf('3.2 - Multiplicação A*C:\n');fprintf('3.2 - Multiplicação A*C:\n');
+%% Questão 6.2.i - y[n] = n*sin(n/2)resultado_AC = A * C;resultado_AC = A * C;
 
-resultado_AC = A * C;resultado_AC = A * C;
+n_range = 0:10;
 
-disp(resultado_AC);disp(resultado_AC);
+y_sin = n_range .* sin(n_range / 2);disp(resultado_AC);disp(resultado_AC);
 
-fprintf('Testando propriedade comutativa (C*A):\n');fprintf('Testando propriedade comutativa (C*A):\n');
 
-trytry
 
-    resultado_CA = C * A;    resultado_CA = C * A;
+figure('Name', 'Questão 6.2.i');fprintf('Testando propriedade comutativa (C*A):\n');fprintf('Testando propriedade comutativa (C*A):\n');
 
-    disp(resultado_CA);    disp(resultado_CA);
+subplot(2, 1, 1);
 
-    fprintf('A propriedade comutativa NÃO vale para multiplicação de matrizes.\n');    fprintf('A propriedade comutativa NÃO vale para multiplicação de matrizes.\n');
+stem(n_range, y_sin, 'b', 'LineWidth', 1.5);trytry
 
-    fprintf('Mesmo quando ambas as operações são possíveis, A*C ≠ C*A em geral.\n\n');    fprintf('Mesmo quando ambas as operações são possíveis, A*C ≠ C*A em geral.\n\n');
+title('y[n] = n \cdot sin(n/2)');
 
-catchcatch
+xlabel('n');    resultado_CA = C * A;    resultado_CA = C * A;
+
+ylabel('y[n]');
+
+grid on;    disp(resultado_CA);    disp(resultado_CA);
+
+
+
+subplot(2, 1, 2);    fprintf('A propriedade comutativa NÃO vale para multiplicação de matrizes.\n');    fprintf('A propriedade comutativa NÃO vale para multiplicação de matrizes.\n');
+
+plot(n_range, y_sin, 'r-o', 'LineWidth', 1.5, 'MarkerSize', 6);
+
+title('y[n] = n \cdot sin(n/2)');    fprintf('Mesmo quando ambas as operações são possíveis, A*C ≠ C*A em geral.\n\n');    fprintf('Mesmo quando ambas as operações são possíveis, A*C ≠ C*A em geral.\n\n');
+
+xlabel('n');
+
+ylabel('y[n]');catchcatch
+
+grid on;
 
     fprintf('ERRO: Não é possível calcular C*A (dimensões incompatíveis).\n');    fprintf('ERRO: Não é possível calcular C*A (dimensões incompatíveis).\n');
 
-    fprintf('A propriedade comutativa NÃO vale para multiplicação de matrizes.\n\n');    fprintf('A propriedade comutativa NÃO vale para multiplicação de matrizes.\n\n');
+%% Questão 6.2.ii - z[n] = 0.5^n e j^(n/2)
+
+z_exp = 0.5 .^ n_range;    fprintf('A propriedade comutativa NÃO vale para multiplicação de matrizes.\n\n');    fprintf('A propriedade comutativa NÃO vale para multiplicação de matrizes.\n\n');
+
+z_complex = exp(1j * n_range / 2);
 
 endend
 
+figure('Name', 'Questão 6.2.ii - z[n]');
 
+stem(n_range, z_exp, 'b', 'LineWidth', 1.5);
 
-fprintf('3.3 - Multiplicação elemento a elemento:\n');fprintf('3.3 - Multiplicação elemento a elemento:\n');
+title('z[n] = 0.5^n');
 
-trytry
+xlabel('n');fprintf('3.3 - Multiplicação elemento a elemento:\n');fprintf('3.3 - Multiplicação elemento a elemento:\n');
 
-    resultado_A_ponto_C = A .* C;    resultado_A_ponto_C = A .* C;
+ylabel('z[n]');
 
-    fprintf('A.*C resulta em erro (dimensões incompatíveis: 3x3 e 3x2)\n\n');    fprintf('A.*C resulta em erro (dimensões incompatíveis: 3x3 e 3x2)\n\n');
-
-catchcatch
-
-    fprintf('ERRO: A.*C não é possível (dimensões incompatíveis)\n\n');    fprintf('ERRO: A.*C não é possível (dimensões incompatíveis)\n\n');
-
-endend
+grid on;trytry
 
 
 
-D = ones(3, 3);D = ones(3, 3);
+figure('Name', 'Questão 6.2.ii - j^(n/2)');    resultado_A_ponto_C = A .* C;    resultado_A_ponto_C = A .* C;
+
+subplot(2, 1, 1);
+
+stem(n_range, real(z_complex), 'b', 'LineWidth', 1.5);    fprintf('A.*C resulta em erro (dimensões incompatíveis: 3x3 e 3x2)\n\n');    fprintf('A.*C resulta em erro (dimensões incompatíveis: 3x3 e 3x2)\n\n');
+
+title('Parte Real de j^{n/2}');
+
+xlabel('n');catchcatch
+
+ylabel('Real');
+
+grid on;    fprintf('ERRO: A.*C não é possível (dimensões incompatíveis)\n\n');    fprintf('ERRO: A.*C não é possível (dimensões incompatíveis)\n\n');
+
+
+
+subplot(2, 1, 2);endend
+
+stem(n_range, imag(z_complex), 'r', 'LineWidth', 1.5);
+
+title('Parte Imaginária de j^{n/2}');
+
+xlabel('n');
+
+ylabel('Imaginário');D = ones(3, 3);D = ones(3, 3);
+
+grid on;
 
 resultado_A_ponto_D = A .* D;resultado_A_ponto_D = A .* D;
 
